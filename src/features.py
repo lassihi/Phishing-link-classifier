@@ -41,7 +41,7 @@ def extract_features(url: str) -> dict:
     parsed = urlparse(url)
     return {
         "is_HTTPS": is_HTTPS(parsed),
-        "is_domain": is_IP(parsed),
+        "is_IP": is_IP(parsed),
         "host_length": host_length(parsed),
         "number_count": number_count(parsed),
         "dot_count": dot_count(parsed),
