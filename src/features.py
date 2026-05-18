@@ -26,8 +26,14 @@ def hyphen_count(parsed: ParseResult) -> int:
 def path_depth(parsed: ParseResult) -> int:
     return parsed.path.count("/") if parsed.path else 0
 
-def has_params(parsed: ParseResult) -> int:
-    return int(bool(parsed.query or parsed.params))
+def query_length(parsed: ParseResult) -> int:
+    return len(parsed.query)
+
+def tld(parsed: ParseResult) -> str:
+    host = parsed.hostname or ""
+    if not host or _IP_PATTERN.match(host):
+        return ""
+    return host.rsplit(".", 1)[-1] if "." in host else ""
 
 def entropy(parsed: ParseResult) -> float:
     host = parsed.hostname or ""
@@ -47,6 +53,7 @@ def extract_features(url: str) -> dict:
         "dot_count": dot_count(parsed),
         "hyphen_count": hyphen_count(parsed),
         "path_depth": path_depth(parsed),
-        "has_params": has_params(parsed),
+        "query_length": query_length(parsed),
+        "tld": tld(parsed),
         "entropy": entropy(parsed),
     }
