@@ -6,9 +6,9 @@ from features import extract_features
 
 _models_dir = Path(__file__).parent.parent / "models"
 models = {
-    "Random Forest":     joblib.load(_models_dir / "model_forest.pkl"),
-    "Gradient Boosting": joblib.load(_models_dir / "model_gb.pkl"),
-    "Decision Tree":     joblib.load(_models_dir / "model_tree.pkl"),
+    "Random Forest": joblib.load(_models_dir / "PhiUSIIL_model_forest.pkl"),
+    "Gradient Boosting": joblib.load(_models_dir / "PhiUSIIL_model_gb.pkl"),
+    "Decision Tree": joblib.load(_models_dir / "PhiUSIIL_model_tree.pkl"),
 }
 
 url = sys.argv[1]
