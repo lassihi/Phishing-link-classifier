@@ -50,7 +50,3 @@ def extract_features(url: str) -> dict:
         "has_params": has_params(parsed),
         "entropy": entropy(parsed),
     }
-
-url = "https://www.lassihirvonen.com/lol?testi=123"
-url2 = "http://192.168.1.1"
-url3 = "https://one.one.one.one"
